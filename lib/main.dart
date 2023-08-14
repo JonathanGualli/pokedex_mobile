@@ -4,6 +4,7 @@ import 'package:pokedex_mobile/providers/pokemon_provider.dart';
 import 'package:pokedex_mobile/screens/category_screen.dart';
 import 'package:pokedex_mobile/screens/pokemon_details.dart';
 import 'package:pokedex_mobile/screens/pokemon_screen.dart';
+import 'package:pokedex_mobile/widgets/pokemon_favorite_list.dart';
 import 'package:provider/provider.dart';
 
 //Firebase
@@ -11,7 +12,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  //evita que se ejecute la aplicacion cuadno dependemos de un servicio. 
+  //evita que se ejecute la aplicacion cuadno dependemos de un servicio.
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
         initialRoute: MainWidget.routeName,
         routes: {
           MainWidget.routeName: (context) => const MainWidget(),
-          PokemonDetailsScreen.routeName: (context) => const PokemonDetailsScreen(),
+          PokemonDetailsScreen.routeName: (context) =>
+              const PokemonDetailsScreen(),
         },
       ),
     );
@@ -57,6 +59,7 @@ class _MainWidgetState extends State<MainWidget> {
   final List<Widget> _mainWidgets = const [
     CategoryScreen(),
     PokemonScreenWidget(),
+    PokemonFavoriteListScreen(),
   ];
 
   void _onTapItem(int index) {
@@ -74,6 +77,8 @@ class _MainWidgetState extends State<MainWidget> {
           BottomNavigationBarItem(
               icon: Icon(Icons.category), label: "Categorias"),
           BottomNavigationBarItem(icon: Icon(Icons.details), label: "Pokemons"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite), label: "Favoritos"),
         ],
         currentIndex: _selectIndex,
         onTap: _onTapItem,

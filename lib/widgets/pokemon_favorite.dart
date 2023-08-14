@@ -30,12 +30,12 @@ class _PokemonFavoriteState extends State<PokemonFavorite> {
   Widget renderFavoriteIcon(bool state) {
     if (state) {
       return IconButton(
-        onPressed: _markFavofiteStatus(widget.id, false),
+        onPressed: () => _markFavofiteStatus(widget.id, false),
         icon: const Icon(Icons.favorite),
       );
     } else {
       return IconButton(
-        onPressed: _markFavofiteStatus(widget.id, true),
+        onPressed: () => _markFavofiteStatus(widget.id, true),
         icon: const Icon(Icons.favorite_border),
       );
     }
