@@ -5,12 +5,14 @@ import 'package:pokedex_mobile/dtos/category_model.dart';
 
 //Estado de categorias que voy a administrar en mi aplicación.
 class CategoryProvider extends ChangeNotifier {
+  
   // _ significa que la lista es privada la administración lo hará esta clase
   final List<CategoryModel> _categories = [];
 
   int get totalCategories => _categories.length;
 
   //si no se va a modificar, es mejor utilizar este unmodifiable para ahorrar recursos.
+  // unmodifiableLIstView permite tener una copia de la lista pero que no puede ser modificada. 
   UnmodifiableListView<CategoryModel> get categoriesGetter =>
       UnmodifiableListView(_categories);
 

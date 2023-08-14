@@ -11,6 +11,7 @@ class CategoryListWidget extends StatefulWidget {
 }
 
 class _CategoryListWidgetState extends State<CategoryListWidget> {
+
   @override
   Widget build(BuildContext context) {
     //Escucha eventos asociado a este estado
