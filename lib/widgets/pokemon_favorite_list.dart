@@ -46,7 +46,7 @@ class _PokemonFavoriteListScreenState extends State<PokemonFavoriteListScreen> {
           List<Pokemon> pokemons =
               snapshot.data!.docs.map((e) => e.data() as Pokemon).toList();
           return PokemonListItems(pokemons: pokemons);
-        });,
+        })
     );
     
   }

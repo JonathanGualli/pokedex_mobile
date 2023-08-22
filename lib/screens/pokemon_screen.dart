@@ -11,6 +11,8 @@ class PokemonScreenWidget extends StatefulWidget {
 }
 
 class _PokemonScreenWidgetState extends State<PokemonScreenWidget> {
+  bool isSearch = false;
+
   @override
   Widget build(BuildContext context) {
     //FutureBuilder nos permite hacer llamadas a metodos que son asincronicos pero permite obtener
@@ -18,10 +20,19 @@ class _PokemonScreenWidgetState extends State<PokemonScreenWidget> {
 
     //el parametro future espera al metodo asincorino al cual se va a llamar.
     // el snapshot me indica el estado del objeto.
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Pokemons"),
-      ),
+      appBar: AppBar(actions: [
+        IconButton(
+          onPressed: () {
+            setState(() {
+              isSearch = !isSearch;
+              print(isSearch);
+            });
+          },
+          icon: const Icon(Icons.search),
+        ),
+      ], title: !isSearch ? const Text("Pokemons") : const Text("Search ...")),
       body: FutureBuilder(
           future: Provider.of<PokemonProvier>(context, listen: false)
               .checkPokemons(),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_mobile/providers/pokemon_provider.dart';
 import 'package:pokedex_mobile/screens/pokemon_details.dart';
-import 'package:pokedex_mobile/screens/pokemon_screen.dart';
 import 'package:pokedex_mobile/widgets/pokemon_favorite.dart';
 import 'package:provider/provider.dart';
 

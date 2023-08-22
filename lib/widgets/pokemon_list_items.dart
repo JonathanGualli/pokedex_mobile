@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_mobile/dtos/pokemon_model.dart';
 import 'package:pokedex_mobile/widgets/pokemon_favorite.dart';
 
 import '../screens/pokemon_details.dart';
 
 class PokemonListItems extends StatefulWidget {
-  const PokemonListItems({super.key});
 
   final List<Pokemon> pokemons;
+
+  const PokemonListItems({super.key, required this.pokemons});
+
 
   @override
   State<PokemonListItems> createState() => _PokemonListItemsState();

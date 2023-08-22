@@ -114,4 +114,17 @@ class PokemonProvier extends ChangeNotifier {
       'isFavorite': value,
     });
   }
+
+  void addCommentToPokemonDoc(int id, String comment) {
+    var db = FirebaseFirestore.instance;
+
+    final commentObj = <String, dynamic>{"comment": comment};
+
+    var setOptions = SetOptions(merge: true);
+
+    db.collection('pokemons').doc(id.toString()).set(
+          commentObj,
+          setOptions,
+        );
+  }
 }
