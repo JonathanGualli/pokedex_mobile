@@ -78,6 +78,8 @@ class PokemonProvier extends ChangeNotifier {
     final pokemonDocument = <String, dynamic>{
       //'id': pokemonData['id'],
       "name": pokemonData['name'],
+      "id": pokemonData['id'],
+      "imageURL": pokemonData['sprites']['front_default']
     };
 
     ///Guardamos en la base de datos

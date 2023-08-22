@@ -21,4 +21,13 @@ class Pokemon {
       imageURL: json['sprites']['front_default'],
     );
   }
+
+  factory Pokemon.fromFirestoreJson(Map<String, dynamic> json) => Pokemon(
+        id: json['id'],
+        name: json['name'],
+        imageURL: json['imageURL'],
+      );
+
+  Map<String, Object?> toJson() =>
+      {'id': id, 'name': name, 'imageURL': imageURL};
 }
