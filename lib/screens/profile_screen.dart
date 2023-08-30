@@ -7,7 +7,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginProvider auth = Provider.of<LoginProvider>(context);
+    var email = Provider.of<LoginProvider>(context).user!.email;
 
     return Scaffold(
       appBar: AppBar(
@@ -18,7 +18,7 @@ class ProfileScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            auth.user!.email.toString(),
+            email!,
             style: const TextStyle(
                 fontSize: 20, fontWeight: FontWeight.bold, color: Colors.cyan),
           ),

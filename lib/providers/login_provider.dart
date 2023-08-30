@@ -91,12 +91,19 @@ class LoginProvider extends ChangeNotifier {
 
   Future<void> logoutUser() async {
     try {
+      /*
       await _auth.signOut().then((_) {
         status = AuthStatus.notAuthenticated;
-        user = null;
         NavigationService.instance
             .navigateToReplacementName(LoginScreen.routeName);
-      });
+        user = null;
+      }); */
+
+      await _auth.signOut();
+      user = null;
+      status = AuthStatus.notAuthenticated;
+      await NavigationService.instance
+          .navigateToReplacementName(LoginScreen.routeName);
       //SnackBarService.instance.showSnackBar("Sesión cerrada con éxito", true);
     } catch (e) {
       SnackBarService.instance.showSnackBar("Error al cerrar sesión", false);
